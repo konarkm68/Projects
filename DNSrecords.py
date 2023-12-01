@@ -7,7 +7,7 @@ class DNSrecords():
     def get_domain():
         root_domain = input(f'Enter Root-Domain: {Fore.YELLOW}')
         ## root_domain = 'example.com'
-        sub_domain = input(f"""{Style.RESET_ALL}Enter Sub-Domain (Press 'Enter' for root domain search'): {Fore.YELLOW}""")
+        sub_domain = input(f"{Style.RESET_ALL}Enter Sub-Domain (Press 'Enter' for root domain search'): {Fore.YELLOW}")
         sub_domain = sub_domain + '.'
         ## sub_domain = 'www.' OR '.'
 
@@ -15,7 +15,7 @@ class DNSrecords():
             domain = root_domain
         else:
             domain = sub_domain + root_domain
-        print(f'{Fore.BLUE}\nDomain: {domain}{Style.RESET_ALL}\n')
+        print(f"{Fore.BLUE}\nDomain: {domain} ('{sub_domain}' + '{root_domain}'){Style.RESET_ALL}\n")
 
         return domain, root_domain, sub_domain
 
