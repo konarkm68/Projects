@@ -1,16 +1,19 @@
 import asyncio
 from favicons import Favicons
+from tkinter import filedialog
 
 loop = asyncio.get_event_loop()
 
-YOUR_ICON = '' # jpg file location
-WEB_SERVER_ROOT = '' # destination folder location
+YOUR_ICON = filedialog.askopenfilename(title='Select image file to generate favicon files:', filetypes=[('Image Files',
+['.svg', '.jpeg', '.jpg', '.png', '.tiff', '.tif'])]) # img file location
+WEB_SERVER_ROOT = filedialog.askdirectory(title='Select folder to save favicon files:') # destination folder for files location
 
 def sync_fvcon():
     with Favicons(YOUR_ICON, WEB_SERVER_ROOT) as favicons:
         favicons.generate()
         for icon in favicons.filenames():
             print(icon)
+sync_fvcon()
 
 async def async_fvcon():
     async with Favicons(YOUR_ICON, WEB_SERVER_ROOT) as favicons:
@@ -39,10 +42,9 @@ async def json_fvcon():
         as_json = favicons.json(indent=2)
         print(as_json)
 
-##sync_fvcon()
-##loop.run_until_complete(async_fvcon())
-##loop.run_until_complete(html_fvcon())
-##loop.run_until_complete(tuple_fvcon())
-##loop.run_until_complete(json_fvcon())
+loop.run_until_complete(async_fvcon())
+loop.run_until_complete(html_fvcon())
+loop.run_until_complete(tuple_fvcon())
+loop.run_until_complete(json_fvcon())
 
 loop.close()
