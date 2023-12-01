@@ -3,8 +3,8 @@ from favicons import Favicons
 
 loop = asyncio.get_event_loop()
 
-YOUR_ICON = 'D:\KM_DRIVE\MyWork\Arckon Inc\Work-Details\APPS\Python\FINANCE\SHARE PnL CALCULATOR\ver.1\img.jpg'
-WEB_SERVER_ROOT = 'D:\\fvcon'
+YOUR_ICON = '' # jpg file location
+WEB_SERVER_ROOT = '' # destination folder location
 
 def sync_fvcon():
     with Favicons(YOUR_ICON, WEB_SERVER_ROOT) as favicons:
