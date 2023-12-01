@@ -1,0 +1,8 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\user>NAVIGATE TO THE LOCATION WHERE YOUR FILE IS STORED
+
+C:\Users\KONARK-MITTAL\Desktop>python -m py_compile google_search.py
+
+C:\Users\KONARK-MITTAL\Desktop>
