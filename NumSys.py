@@ -49,9 +49,23 @@ class NumSys():
 
     def complement():
         print("\n\t    2. Complement")
-        num = int(input(f"\nEnter the Binary-Number: {Fore.YELLOW}"), 2)
-        print(f"{Fore.BLUE}The 1's Complement is: \n\tBinary : {(~num):b} \n\tDecimal: {(~num):d}")
-        print(f"{Fore.BLUE}The 2's Complement is: \n\tBinary : {(~num + 1):b} \n\tDecimal: {(~num + 1):d}")
+        bits = int(input(f"\nEnter the number of bits (including signed-bit): {Fore.YELLOW}"))
+        bits_mask = int(bin(2**bits - 1)[2:], 2)
+        num = int(input(f"{Style.RESET_ALL}Enter the ({bits}-bit) Binary-Number (including signed-bit): {Fore.YELLOW}"), 2)
+
+        def ones_complement(num, bits):
+            return bin(num ^ bits_mask)[2:]
+
+        def twos_complement(num, bits):
+            ones_comp = ones_complement(num, bits)
+            return bin(int(ones_comp, 2) + 0b1)[2:]
+
+        ones_comp = ones_complement(num, bits)
+        twos_comp = twos_complement(num, bits)
+
+        print(f"\n{Fore.BLUE}The Decimal-Number is: (+){num:d}")
+        print(f"{Fore.BLUE}The 1's Complement is: \n\tBinary : {ones_comp} \n\tDecimal: {-num-1:d} OR {~num  :d}")
+        print(f"{Fore.BLUE}The 2's Complement is: \n\tBinary : {twos_comp} \n\tDecimal: {-num  :d} OR {~num+1:d}")
 
     def main():
         try:
