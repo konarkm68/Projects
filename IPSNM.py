@@ -95,4 +95,3 @@ class IPSNM_calc():
 
 if __name__ == "__main__":
     IPSNM_calc()
-
