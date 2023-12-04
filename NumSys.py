@@ -51,7 +51,7 @@ class NumSys():
         print("\n\t    2. Complement")
         bits = int(input(f"\nEnter the number of bits (including signed-bit): {Fore.YELLOW}"))
         bits_mask = int(bin(2**bits - 1)[2:], 2)
-        num = int(input(f"{Style.RESET_ALL}Enter the ({bits}-bit) Binary-Number (including signed-bit): {Fore.YELLOW}"), 2)
+        num = int(input(f"{Style.RESET_ALL}Enter the ({bits}-bit-Binary-Number) = (1-signed-bit + {bits-1}-Binary-Number-bits): {Fore.YELLOW}"), 2)
 
         def ones_complement(num, bits):
             return bin(num ^ bits_mask)[2:]
@@ -59,18 +59,43 @@ class NumSys():
         def twos_complement(num, bits):
             ones_comp = ones_complement(num, bits)
             return bin(int(ones_comp, 2) + 0b1)[2:]
+        """
+        if bin(num)[1] == '1':
+            sign = '-'
+            bin_ss = 3
+
+            ones_comp = ones_complement(num, bits)
+            ones_comp1 = -(-int(bin(num)[bin_ss:], 2)+1)
+            ones_comp2 = ~(~int(bin(num)[bin_ss:], 2)+1)
+
+            twos_comp = twos_complement(num, bits)
+            twos_comp1 = -(-int(bin(num)[bin_ss:], 2)  )
+            twos_comp2 = ~(~int(bin(num)[bin_ss:], 2)  )  
+        else:
+        """
+        sign = '+'
+        bin_ss = 2
 
         ones_comp = ones_complement(num, bits)
-        twos_comp = twos_complement(num, bits)
+        ones_comp1 = -int(bin(num)[bin_ss:], 2)-1
+        ones_comp2 = ~int(bin(num)[bin_ss:], 2) 
+        
+        twos_comp = twos_complement(num, bits) 
+        twos_comp1 = -int(bin(num)[bin_ss:], 2)  
+        twos_comp2 = ~int(bin(num)[bin_ss:], 2)+1  
 
-        print(f"\n{Fore.BLUE}The Decimal-Number is: (+){num:d}")
-        print(f"{Fore.BLUE}The 1's Complement is: \n\tBinary : {ones_comp} \n\tDecimal: {-num-1:d} OR {~num  :d}")
-        print(f"{Fore.BLUE}The 2's Complement is: \n\tBinary : {twos_comp} \n\tDecimal: {-num  :d} OR {~num+1:d}")
+        print(f"\n{Fore.BLUE}The Decimal-Number is: ({sign}){int(bin(num)[bin_ss:], 2):d}")
+        print(f"""{Fore.BLUE}The 1's Complement is: 
+\tBinary : {ones_comp} 
+\tDecimal: Actual: {int(ones_comp, 2):d} Considered as: {ones_comp1:d} OR {ones_comp2:d}""")
+        print(f"""{Fore.BLUE}The 2's Complement is: 
+\tBinary : {twos_comp} 
+\tDecimal: Actual: {int(twos_comp, 2):d} Considered as: {twos_comp1:d} OR {twos_comp2:d}""")
 
     def main():
         try:
-            print("""\nWelcome to the Number-System Calculator!
-
+            print("""
+            Welcome to the Number-System Calculator!\n
     1. Number-System Conversion
     2. Complement 
     3. Exit    """)
