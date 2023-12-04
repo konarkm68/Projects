@@ -86,8 +86,7 @@ class NumSys():
                 case _:
                     print(f"\n\t{Fore.RED}Invalid Choice")
         except Exception as e:
-            print(f"""\n\t{Fore.RED}Exception: {e}
-            Press <Control> + <C> to exit !!""") 
+            print(f"""\n\t{Fore.RED}Exception: {e}\n\tPress <Control> + <C> to exit !!{Style.RESET_ALL}""") 
 
     def __init__(self):
         colorama_init(autoreset=True)
