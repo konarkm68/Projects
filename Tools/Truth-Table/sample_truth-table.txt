@@ -1,0 +1,15 @@
++----+-----+-----+-------+-------+-----------+-----------+
+|    |  P  |  Q  |  P=P  |  Q=Q  |  not P=P  |  not Q=Q  |
+|----+-----+-----+-------+-------+-----------+-----------|
+| 1  |  0  |  0  |   1   |   1   |     0     |     0     |
+| 2  |  0  |  1  |   1   |   1   |     0     |     0     |
+| 3  |  1  |  0  |   1   |   1   |     0     |     0     |
+| 4  |  1  |  1  |   1   |   1   |     0     |     0     |
++----+-----+-----+-------+-------+-----------+-----------+
+
+Valuation for Column #1: Contingency
+Valuation for Column #2: Contingency
+Valuation for Column #3: Tautology
+Valuation for Column #4: Tautology
+Valuation for Column #5: Contradiction
+Valuation for Column #6: Contradiction

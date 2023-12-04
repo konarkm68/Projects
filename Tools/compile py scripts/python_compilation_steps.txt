@@ -1,0 +1,6 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\user>NAVIGATE TO THE LOCATION WHERE YOUR FILE IS STORED
+
+C:\Users\user\folder>python -m py_compile module.py
