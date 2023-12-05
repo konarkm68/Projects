@@ -1,4 +1,4 @@
-import os
+import os, PyInstaller ## py -m pip install PyInstaller
 from tkinter import Tk,ttk,Label,Button,filedialog,messagebox
 
 master=Tk('.py ---> .exe')
