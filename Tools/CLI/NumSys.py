@@ -19,8 +19,10 @@ class NumSys():
                             Binary-Number
                             Octal-Number
         5. Exit    """)
+
         choice = int(input(f"Enter your choice: {Fore.YELLOW}"))
         print(f"{Style.RESET_ALL}")
+
         match choice:
             case 1:
                 num = int(input(f"Enter the Decimal-Number{':':>4} {Fore.YELLOW}"), 10)
@@ -47,10 +49,57 @@ class NumSys():
             case _:
                 print(f"\t{Fore.RED}Invalid Choice")
 
+    def BinaryOperations():
+        print("""\n\t    2. Binary Operations
+\t        a. Binary Addition
+\t        b. Binary Subtraction
+\t        c. EXIT!""")
+
+        choice = input(f"Enter your choice: {Fore.YELLOW}")
+        print(f"{Style.RESET_ALL}", end="")
+
+        def BinaryAdd():
+            print("\n\t    2. a. Binary Addition\n")
+
+            num = int(input(f"{Fore.YELLOW}Enter the number of binary-numbers to add: "))
+            
+            for i in range(num):
+                bin_num = input(f"{Style.RESET_ALL}Enter Binary-Number #{i+1}: {Fore.YELLOW}")
+                if i == 0:
+                    bin_sum = int(bin_num, 2)
+                else:
+                    bin_sum += int(bin_num, 2)
+
+            print(f"{Style.RESET_ALL}\n{Fore.BLUE}The Binary-Sum is:  {bin(bin_sum)[2:]}")
+            print(f"{Fore.BLUE}The Decimal-Sum is: {bin_sum:d}")
+
+        def BinarySub():
+            print("\n\t    2. b. Binary Subtraction\n")
+
+            bin_num1 = input(f"Enter Binary-Number #1: {Fore.YELLOW}")
+            bin_num2 = input(f"{Style.RESET_ALL}Enter Binary-Number #2: {Fore.YELLOW}")
+
+            bin_sum = int(bin_num1, 2) - int(bin_num2, 2)
+
+            print(f"{Style.RESET_ALL}\n{Fore.BLUE}The Binary-Difference is:  {bin(bin_sum)[2:]}")
+            print(f"{Fore.BLUE}The Decimal-Difference is: {bin_sum:d}")
+        
+        match choice:
+            case 'a' | 'A':
+                BinaryAdd()
+            case 'b' | 'B':
+                BinarySub()
+            case 'c' | 'C':
+                exit()
+            case _:
+                print(f"\n\t{Fore.RED}Invalid Choice")
+
     def complement():
-        print("\n\t    2. Complement")
-        bits = int(input(f"\nEnter the number of bits (including signed-bit): {Fore.YELLOW}"))
+        print("\n\t    3. Complement\n")
+
+        bits = int(input(f"Enter the number of bits (including signed-bit): {Fore.YELLOW}"))
         bits_mask = int(bin(2**bits - 1)[2:], 2)
+
         num = int(input(f"{Style.RESET_ALL}Enter the ({bits}-bit-Binary-Number) = (1-signed-bit + {bits-1}-Binary-Number-bits): {Fore.YELLOW}"), 2)
 
         def ones_complement(num, bits):
@@ -59,20 +108,7 @@ class NumSys():
         def twos_complement(num, bits):
             ones_comp = ones_complement(num, bits)
             return bin(int(ones_comp, 2) + 0b1)[2:]
-        """
-        if bin(num)[1] == '1':
-            sign = '-'
-            bin_ss = 3
-
-            ones_comp = ones_complement(num, bits)
-            ones_comp1 = -(-int(bin(num)[bin_ss:], 2)+1)
-            ones_comp2 = ~(~int(bin(num)[bin_ss:], 2)+1)
-
-            twos_comp = twos_complement(num, bits)
-            twos_comp1 = -(-int(bin(num)[bin_ss:], 2)  )
-            twos_comp2 = ~(~int(bin(num)[bin_ss:], 2)  )  
-        else:
-        """
+        
         sign = '+'
         bin_ss = 2
 
@@ -97,16 +133,21 @@ class NumSys():
             print("""
             Welcome to the Number-System Calculator!\n
     1. Number-System Conversion
-    2. Complement 
-    3. Exit    """)
+    2. Operations on Binary-Numbers
+    3. Find Complements - 1's & 2's
+    4. EXIT!    """)
+
             operation_choice = int(input(f"Enter your choice: {Fore.YELLOW}"))
             print(f"{Style.RESET_ALL}", end="")
+
             match operation_choice:
                 case 1:
                     NumSys.NumSys_converter()
                 case 2:
-                    NumSys.complement()
+                    NumSys.BinaryOperations()
                 case 3:
+                    NumSys.complement()
+                case 4:
                     exit()
                 case _:
                     print(f"\n\t{Fore.RED}Invalid Choice")
