@@ -63,7 +63,7 @@ def mouth():
 
 
 def scarf():
-    fillcolor('#e70010')
+    fillcolor("#e70010")
     begin_fill()
     seth(0)
     fd(200)
@@ -80,7 +80,7 @@ def scarf():
 def nose():
     my_goto(-10, 158)
     seth(315)
-    fillcolor('#e70010')
+    fillcolor("#e70010")
     begin_fill()
     circle(20)
     end_fill()
@@ -89,7 +89,7 @@ def nose():
 def black_eyes():
     seth(0)
     my_goto(-20, 195)
-    fillcolor('#000000')
+    fillcolor("#000000")
     begin_fill()
     circle(13)
     end_fill()
@@ -101,7 +101,7 @@ def black_eyes():
     pensize(3)
     my_goto(-17, 200)
     seth(0)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     circle(5)
     end_fill()
@@ -111,7 +111,7 @@ def black_eyes():
 def face():
     fd(183)
     lt(45)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     circle(120, 100)
     seth(180)
@@ -139,7 +139,7 @@ def head():
     penup()
     circle(150, 40)
     pendown()
-    fillcolor('#00a0de')
+    fillcolor("#00a0de")
     begin_fill()
     circle(150, 280)
     end_fill()
@@ -168,7 +168,7 @@ def Doraemon():
     seth(70)
     circle(-30, 270)
 
-    fillcolor('#00a0de')
+    fillcolor("#00a0de")
     begin_fill()
 
     seth(230)
@@ -209,14 +209,14 @@ def Doraemon():
     end_fill()
 
     seth(70)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     circle(-30)
     end_fill()
 
     my_goto(103.74, -182.59)
     seth(0)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     fd(15)
     circle(-15, 180)
@@ -227,7 +227,7 @@ def Doraemon():
 
     my_goto(-96.26, -182.59)
     seth(180)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     fd(15)
     circle(15, 180)
@@ -238,7 +238,7 @@ def Doraemon():
 
     my_goto(-133.97, -91.81)
     seth(50)
-    fillcolor('#ffffff')
+    fillcolor("#ffffff")
     begin_fill()
     circle(30)
     end_fill()
@@ -262,12 +262,12 @@ def Doraemon():
     my_goto(-103.42, 15.09)
     fd(90)
     seth(70)
-    fillcolor('#ffd200')
+    fillcolor("#ffd200")
     begin_fill()
     circle(-20)
     end_fill()
     seth(170)
-    fillcolor('#ffd200')
+    fillcolor("#ffd200")
     begin_fill()
     circle(-2, 180)
     seth(10)
@@ -285,7 +285,8 @@ def Doraemon():
     my_goto(0, -150)
     black_eyes()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     screensize(50, 400, "#f0f0f0")
     pensize(3)
     speed(11)
